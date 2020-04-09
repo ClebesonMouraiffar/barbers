@@ -101,6 +101,12 @@ const styles = {
     buttonTextStyle: {
         color: 'white',
         fontWeight: 'bold',
-    }
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '100%',
+        marginTop: 20,
+      },
 }
 export default styles;

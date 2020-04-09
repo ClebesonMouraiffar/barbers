@@ -3,8 +3,21 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+import Home from "./../screens/Home"
+import ListItens from "../screens/ListItens"
+import Perfil from "./../screens/Perfil"
+import MoreInfo from "./../screens/MoreInfo"
+import PerfilEdit from "./../screens/PerfilEdit"
+import Scan from "./../screens/Scan"
+
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+const TabTop = createMaterialTopTabNavigator();
 
 function HomeScreen() {
     return (
@@ -14,7 +27,7 @@ function HomeScreen() {
     );
 }
 
-function BarbersScreen() {
+function SettingsScreen() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Settings!</Text>
@@ -22,15 +35,82 @@ function BarbersScreen() {
     );
 }
 
-function PerfilScreen() {
+function MoreInfoTabTop(props) {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Perfil!</Text>
-        </View>
+        <TabTop.Navigator>
+            <TabTop.Screen name="Home" component={HomeScreen} />
+            <TabTop.Screen name="Settings" component={SettingsScreen} />
+        </TabTop.Navigator>
     );
 }
 
-const Tab = createBottomTabNavigator();
+function HomeStack(props) {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Home"
+                component={Home}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Stack.Screen
+                name="QRCodeScan"
+                component={Scan}
+                options={{
+                    headerTintColor: 'white',
+                    headerStyle: {
+                        backgroundColor: '#b58110'
+                    }
+                }}
+            />
+        </Stack.Navigator>
+    );
+}
+
+function CardsStack(props) {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Barbearias"
+                component={ListItens}
+                options={{
+                    headerTitleAlign: 'center',
+                    headerTintColor: 'white',
+                    headerStyle: {
+                        backgroundColor: '#b58110'
+                    }
+                }}
+            />
+            <Stack.Screen
+                name="Barbearia"
+                component={MoreInfoTabTop}
+            />
+        </Stack.Navigator>
+    );
+}
+
+function PerfilStack(props) {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Perfil"
+                component={Perfil}
+                options={{
+                    headerTitleAlign: 'center',
+                    headerTintColor: 'white',
+                    headerStyle: {
+                        backgroundColor: '#b58110'
+                    }
+                }}
+            />
+            <Stack.Screen
+                name="PerfilEdit"
+                component={PerfilEdit}
+            />
+        </Stack.Navigator>
+    );
+}
 
 export default function Screens() {
     return (
@@ -42,9 +122,9 @@ export default function Screens() {
 
                         if (route.name === 'Home') {
                             iconName = 'home';
-                        } else if (route.name === 'Barbeiros') {
-                            iconName = 'account-search';
-                        }else if (route.name === 'Perfil') {
+                        } else if (route.name === 'Barbearias') {
+                            iconName = 'map-search';
+                        } else if (route.name === 'Perfil') {
                             iconName = 'account';
                         }
 
@@ -57,9 +137,9 @@ export default function Screens() {
                     inactiveTintColor: '#000000',
                 }}
             >
-                <Tab.Screen name="Home" component={HomeScreen} />
-                <Tab.Screen name="Barbeiros" component={BarbersScreen} />
-                <Tab.Screen name="Perfil" component={PerfilScreen} />
+                <Tab.Screen name="Home" component={HomeStack} />
+                <Tab.Screen name="Barbearias" component={CardsStack} />
+                <Tab.Screen name="Perfil" component={PerfilStack} />
             </Tab.Navigator>
         </NavigationContainer>
     );
