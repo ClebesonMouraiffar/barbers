@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-elements';
 
+import colors from '../config/colors';
+
 const SCREEN_WIDTH = Dimensions.get('screen').width;
 const IMAGE_SIZE = SCREEN_WIDTH - 80;
 const { height, width } = Dimensions.get('screen')
@@ -45,7 +47,7 @@ export default class LoginScreen1 extends Component {
                                     name: 'qrcode-scan',
                                     type: 'material-community',
                                     size: 30,
-                                    color: 'white',
+                                    color: colors.primary1,
                                 }}
                                 iconContainerStyle={{ marginRight: 10 }}
                             />
@@ -61,7 +63,7 @@ export default class LoginScreen1 extends Component {
                                     name: 'search',
                                     type: 'font-awesome',
                                     size: 30,
-                                    color: 'white',
+                                    color: colors.primary1,
                                 }}
                                 iconContainerStyle={{ marginRight: 10 }}
                             />
@@ -87,12 +89,12 @@ const styles = StyleSheet.create({
         borderRadius: 0,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(181, 129, 16, 1)',
+        backgroundColor: colors.primary,
     },
     titleStyle: {
         fontFamily: 'regular',
         fontSize: 18,
-        color: 'white',
+        color: colors.primary1,
         textAlign: 'center',
         fontWeight: '700',
     },

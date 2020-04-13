@@ -18,22 +18,24 @@ import {
     ListItem,
 } from 'react-native-elements';
 
+import colors from '../config/colors';
+
 const list2 = [
     {
         name: 'Barbearia Malheiro',
         avatar_url:
             'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-            service: 'Barba, Cabelo, Sombrancelha',
-            location: 'R. Adolfo Sinnemann, 249',
-            time:'00:30',
+        service: 'Barba, Cabelo, Sombrancelha',
+        location: 'R. Adolfo Sinnemann, 249',
+        time: '00:30',
     },
     {
         name: 'Navalha Forte',
         avatar_url:
             'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-            service: 'Barba, Cabelo, Sombrancelha',
-            location: 'R. Adolfo Sinnemann, 249',
-            time:'02:30',
+        service: 'Barba, Cabelo, Sombrancelha',
+        location: 'R. Adolfo Sinnemann, 249',
+        time: '02:30',
     },
     {
         name: 'Confrearia da Barba',
@@ -54,27 +56,19 @@ const list2 = [
         name: 'Melissa Jones',
         avatar_url:
             'https://s3.amazonaws.com/uifaces/faces/twitter/nuraika/128.jpg',
-            service: 'Barba, Cabelo, Sombrancelha',
-            location: 'R. Adolfo Sinnemann, 249',
-            time:'01:30',
+        service: 'Barba, Cabelo, Sombrancelha',
+        location: 'R. Adolfo Sinnemann, 249',
+        time: '01:30',
     },
 ];
 const log = () => console.log('this is an example method');
-
-function viewtest() {
-    return (
-        <View >
-            <Text>Perfil!</Text>
-        </View>
-    );
-}
 
 class ListItens extends React.Component {
     render() {
         const { navigation } = this.props;
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <StatusBar barStyle="light-content" backgroundColor="#b58110" />
+                <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
                 <ScrollView
                     showsVerticalScrollIndicator={false}
                 >
@@ -87,16 +81,15 @@ class ListItens extends React.Component {
                                 tension={100}
                                 activeScale={0.95}
                                 key={i}
-                                onPress={log}
+                                onPress={() => navigation.navigate('Barbearia')}
                                 title={l.name}
-                                //subtitle={l.subtitle}
                                 subtitle={
                                     <View>
                                         <View style={styles.subtitleViewRow}>
                                             <Icon
                                                 name='cut'
                                                 type='font-awesome'
-                                                color='grey'
+                                                color={colors.grey1}
                                                 size={16}
                                             />
                                             <Text style={styles.ratingText}>{l.service}</Text>
@@ -106,16 +99,16 @@ class ListItens extends React.Component {
                                             <Icon
                                                 name='location-on'
                                                 type='material'
-                                                color='#b58110'
+                                                color={colors.primary}
                                                 size={22}
                                             />
                                             <Text style={styles.locationText}>{l.location}</Text>
                                         </View>
                                         <View style={styles.subtitleViewRow}>
-                                        <Icon
+                                            <Icon
                                                 name='timer-sand'
                                                 type='material-community'
-                                                color='black'
+                                                color={colors.primary2}
                                                 size={24}
                                             />
                                             <Text style={styles.timeText}>{l.time}</Text>
@@ -146,18 +139,18 @@ const styles = StyleSheet.create({
     },
     ratingText: {
         paddingLeft: 5,
-        color: 'grey',
+        color: colors.grey1,
     },
     timeText: {
         fontSize: 20,
-        fontWeight:'bold',
+        fontWeight: 'bold',
         paddingLeft: 4,
-        color: '#4d4d4d',
+        color: colors.grey2,
     },
     locationText: {
         fontSize: 16,
         paddingLeft: 6,
-        color: 'black',
+        color: colors.primary2,
     },
 })
 

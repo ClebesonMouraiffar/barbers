@@ -3,6 +3,7 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import { CheckBox, Button } from 'react-native-elements'
 
 import styles from '../assets/styles/scanStyle'
+import colors from '../config/colors';
 import {
     TouchableOpacity,
     Text,
