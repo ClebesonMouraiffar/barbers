@@ -1,9 +1,9 @@
 import React from 'react';
-import AppScreens from "./navigation/Screens"
+import RootNavigator from "./navigation/RootNavigator"
 
 function App() {
   return (
-    <AppScreens />
+    <RootNavigator />
   );
 }
 
