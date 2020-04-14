@@ -19,53 +19,13 @@ import {
 } from 'react-native-elements';
 
 import colors from '../config/colors';
-
-const list2 = [
-    {
-        name: 'Barbearia Malheiro',
-        avatar_url:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        service: 'Barba, Cabelo, Sombrancelha',
-        location: 'R. Adolfo Sinnemann, 249',
-        time: '00:30',
-    },
-    {
-        name: 'Navalha Forte',
-        avatar_url:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-        service: 'Barba, Cabelo, Sombrancelha',
-        location: 'R. Adolfo Sinnemann, 249',
-        time: '02:30',
-    },
-    {
-        name: 'Confrearia da Barba',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-        service: 'Barba, Cabelo, Sombrancelha',
-        location: 'R. Adolfo Sinnemann, 249',
-        time: '01:00',
-    },
-    {
-        name: "Root's Barbearia",
-        avatar_url:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg',
-        service: 'Barba, Cabelo, Sombrancelha',
-        location: 'R. Adolfo Sinnemann, 249',
-        time: '01:30',
-    },
-    {
-        name: 'Melissa Jones',
-        avatar_url:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/nuraika/128.jpg',
-        service: 'Barba, Cabelo, Sombrancelha',
-        location: 'R. Adolfo Sinnemann, 249',
-        time: '01:30',
-    },
-];
-const log = () => console.log('this is an example method');
+import { itens } from './../constants'
 
 class ListItens extends React.Component {
+    onLearnMore = (item) => {
+        this.props.navigation.navigate('Info', item);
+    };
     render() {
-        const { navigation } = this.props;
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
@@ -74,15 +34,15 @@ class ListItens extends React.Component {
                 >
                     <View style={{ flex: 1 }}>
 
-                        {list2.map((l, i) => (
+                        {itens.map((item, i) => (
                             <ListItem
-                                leftAvatar={{ title: l.name[0], source: { uri: l.avatar_url } }}
+                                leftAvatar={{ title: item.name[0], source: { uri: item.avatar_url } }}
                                 friction={90}
                                 tension={100}
                                 activeScale={0.95}
                                 key={i}
-                                onPress={() => navigation.navigate('Barbearia')}
-                                title={l.name}
+                                onPress={() => this.onLearnMore(item)}
+                                title={item.name}
                                 subtitle={
                                     <View>
                                         <View style={styles.subtitleViewRow}>
@@ -92,7 +52,7 @@ class ListItens extends React.Component {
                                                 color={colors.grey1}
                                                 size={16}
                                             />
-                                            <Text style={styles.ratingText}>{l.service}</Text>
+                                            <Text style={styles.ratingText}>{item.service}</Text>
                                         </View>
                                         <Divider />
                                         <View style={styles.subtitleViewRow}>
@@ -102,7 +62,7 @@ class ListItens extends React.Component {
                                                 color={colors.primary}
                                                 size={22}
                                             />
-                                            <Text style={styles.locationText}>{l.location}</Text>
+                                            <Text style={styles.locationText}>{item.location}</Text>
                                         </View>
                                         <View style={styles.subtitleViewRow}>
                                             <Icon
@@ -111,7 +71,7 @@ class ListItens extends React.Component {
                                                 color={colors.primary2}
                                                 size={24}
                                             />
-                                            <Text style={styles.timeText}>{l.time}</Text>
+                                            <Text style={styles.timeText}>{item.time}</Text>
                                         </View>
                                     </View>
                                 }

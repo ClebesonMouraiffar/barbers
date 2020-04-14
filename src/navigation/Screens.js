@@ -12,7 +12,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Home from "./../screens/Home"
 import ListItens from "../screens/ListItens"
 import Perfil from "./../screens/Perfil"
-import MoreInfo from "./../screens/MoreInfo"
+import BarberInfo from "../screens/BarberInfo"
 import PerfilEdit from "./../screens/PerfilEdit"
 import Scan from "./../screens/Scan"
 
@@ -38,41 +38,12 @@ function HomeScreen() {
     );
 }
 
-function MoreInfoTabTop(props) {
+function BarberInfoStack(props) {
     return (
         <TabTop.Navigator>
-            <TabTop.Screen name="Home" component={HomeScreen} />
+            <TabTop.Screen name="Home" component={BarberInfo} />
             <TabTop.Screen name="Settings" component={SettingsScreen} />
         </TabTop.Navigator>
-    );
-}
-
-function ScanStack({ navigation }) {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen
-                name="QRCodeScan"
-                component={Scan}
-                options={{
-                    headerTintColor: colors.primary1,
-                    headerStyle: {
-                        backgroundColor: colors.primary,
-                    },
-                    headerLeft: () => (
-                        <Button
-                            onPress={() => navigation.goBack()}
-                            icon={{
-                                name: 'close',
-                                type: 'material',
-                                color: colors.primary1,
-                              }}
-                            type="clear"
-                            titleStyle={{ color: colors.primary1 }}
-                        />
-                      ),
-                }}
-            />
-        </Stack.Navigator>
     );
 }
 
@@ -90,10 +61,7 @@ function ListStack(props) {
                     }
                 }}
             />
-            <Stack.Screen
-                name="Barbearia"
-                component={MoreInfoTabTop}
-            />
+
         </Stack.Navigator>
     );
 }
@@ -113,10 +81,6 @@ function PerfilStack(props) {
                         shadowOpacity: 0,
                     }
                 }}
-            />
-            <Stack.Screen
-                name="PerfilEdit"
-                component={PerfilEdit}
             />
         </Stack.Navigator>
     );
@@ -156,9 +120,36 @@ function TabScreens() {
 function AppScreens() {
     return (
         <NavigationContainer>
-            <RootStack.Navigator mode="modal" headerMode="none">
-                <RootStack.Screen name="Main" component={TabScreens} />
-                <RootStack.Screen name="QRCodeScan" component={ScanStack} />
+            <RootStack.Navigator mode="modal" >
+                <RootStack.Screen
+                    name="Main"
+                    component={TabScreens}
+                    options={{
+                        headerShown: false,
+                    }}
+                />
+                <RootStack.Screen
+                    name="QRCodeScan"
+                    component={Scan}
+                    options={{
+                        headerTitleAlign: 'center',
+                        headerTintColor: colors.primary1,
+                        headerStyle: {
+                            backgroundColor: colors.primary,
+                        },
+                    }}
+                />
+                <RootStack.Screen
+                    name="Info"
+                    component={BarberInfo}
+                    options={{
+                        headerTitleAlign: 'center',
+                        headerTintColor: colors.primary1,
+                        headerStyle: {
+                            backgroundColor: colors.primary,
+                        },
+                    }}
+                />
             </RootStack.Navigator>
         </NavigationContainer>
     );

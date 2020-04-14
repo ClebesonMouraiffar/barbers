@@ -79,7 +79,7 @@ export default class LoginScreen1 extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgba(18, 15, 6,0.85)',
+        backgroundColor: colors.forImage,
         justifyContent: 'center',
         alignItems: 'center'
     },
