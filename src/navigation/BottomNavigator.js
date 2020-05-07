@@ -50,7 +50,7 @@ function PerfilStack(props) {
     );
 }
 
-function TabNavigator() {
+function BottomNavigator() {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -81,4 +81,4 @@ function TabNavigator() {
     );
 }
 
-export default TabNavigator;
+export default BottomNavigator;

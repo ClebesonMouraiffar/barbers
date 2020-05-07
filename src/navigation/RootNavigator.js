@@ -1,12 +1,14 @@
 // You can import Ionicons from @expo/vector-icons if you use Expo or
 // react-native-vector-icons/Ionicons otherwise.
 import * as React from 'react';
+import { Button, Icon } from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import TabNavigator from "./TabNavigator"
+import BottomNavigator from "./BottomNavigator"
 import BarberInfo from "../screens/BarberInfo"
 import Scan from "../screens/Scan"
+import PerfilData from "../screens/PerfilData"
 import colors from '../config/colors';
 
 const RootStack = createStackNavigator();
@@ -17,7 +19,7 @@ function RootNavigator() {
             <RootStack.Navigator mode="modal" >
                 <RootStack.Screen
                     name="Main"
-                    component={TabNavigator}
+                    component={BottomNavigator}
                     options={{
                         headerShown: false,
                     }}
@@ -42,6 +44,26 @@ function RootNavigator() {
                         headerStyle: {
                             backgroundColor: colors.primary,
                         },
+                    }}
+                />
+                <RootStack.Screen
+                    name="PerfilData"
+                    component={PerfilData}
+                    options={{
+                        headerTitle: false,
+                        headerTintColor: colors.primary1,
+                        headerTransparent: true,
+                        headerRight: () => (
+                            <Button
+                                type="clear"
+                                onPress={() => alert('This is a button!')}
+                                icon={{
+                                    name: 'edit',
+                                    type: 'material',
+                                    color: colors.primary1,
+                                }}
+                            />
+                        ),
                     }}
                 />
             </RootStack.Navigator>

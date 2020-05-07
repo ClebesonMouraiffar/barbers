@@ -3,33 +3,42 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
 import colors from '../config/colors';
 
 const TabTop = createMaterialTopTabNavigator();
 
-function SettingsScreen() {
+function SettingsScreen(item) {
+
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Settings!</Text>
         </View>
     );
 }
-function HomeScreen() {
+function HomeScreen({ route, navigation }) {
+    const { name } = route.params;
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Home!</Text>
+            <Text>Nome: {name}</Text>
         </View>
     );
 }
 
-function TabNavigator(props) {
-    return (
-        <TabTop.Navigator>
-            <TabTop.Screen name="Home" component={HomeScreen} />
-            <TabTop.Screen name="Settings" component={SettingsScreen} />
-        </TabTop.Navigator>
-    );
+class TopNavigator extends React.Component {
+    render() {
+        const { item } = this.props;
+        return (
+            <TabTop.Navigator>
+                <TabTop.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    initialParams={{ name: item.name }}
+                />
+                <TabTop.Screen name="Settings" component={SettingsScreen} />
+            </TabTop.Navigator>
+        );
+    }
 }
 
-export default TabNavigator;
+export default TopNavigator;

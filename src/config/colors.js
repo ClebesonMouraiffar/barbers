@@ -12,5 +12,6 @@ export default {
   grey5: '#e1e8ee',
   dkGreyBg: '#232323',
   greyOutline: '#cbd2d9',
-  forImage: 'rgba(18, 15, 6,0.85)'
+  forImage: 'rgba(18, 15, 6,0.85)',
+  forBanner: 'rgba(18, 15, 6,0.60)',
 };

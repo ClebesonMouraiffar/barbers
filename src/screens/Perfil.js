@@ -9,36 +9,39 @@ import {
 } from 'react-native';
 import {
     Text,
-    Card,
-    Tile,
-    Icon,
     Avatar,
     ListItem,
 } from 'react-native-elements';
 
 import colors from '../config/colors';
+import { users } from './../constants';
 
 
 class Perfil extends React.Component {
+    onMore = (item) => {
+        this.props.navigation.navigate('PerfilData', item);
+    };
     render() {
         const { navigation } = this.props;
+        const user = users[0];
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <StatusBar barStyle="light-content" backgroundColor="#b58110" />
+                <View style={styles.headerContainer}>
+                    <Avatar
+                        size="xlarge"
+                        rounded
+                        icon={{ name: 'user', type: 'font-awesome' }}
+                    />
+                    <Text style={styles.heading}>{user.name}</Text>
+                </View>
                 <ScrollView
                     showsVerticalScrollIndicator={false}
                 >
-                    <View style={styles.headerContainer}>
-                        <Avatar
-                            size="xlarge"
-                            rounded
-                            icon={{ name: 'user', type: 'font-awesome' }}
-                        />
-                        <Text style={styles.heading}>Clebeson Moura</Text>
-                    </View>
                     <View style={styles.list}>
                         <ListItem
                             title="Meus Dados"
+                            onPress={() => this.onMore(user)}
                             chevron
                             bottomDivider
                         />
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: colors.greyOutline,
         backgroundColor: '#fff',
-      },
+    },
 })
 
 /*<Button
