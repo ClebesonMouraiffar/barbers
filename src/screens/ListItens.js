@@ -52,7 +52,12 @@ class ListItens extends React.Component {
                                                 color={colors.grey1}
                                                 size={16}
                                             />
-                                            <Text style={styles.ratingText}>{item.service}</Text>
+                                            {item.services.map((service, i) => (
+                                                <Text style={styles.ratingText}>
+                                                    {service.service_name},
+                                                </Text>
+                                            ))}
+
                                         </View>
                                         <Divider />
                                         <View style={styles.subtitleViewRow}>

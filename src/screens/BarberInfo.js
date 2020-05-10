@@ -12,6 +12,7 @@ import {
 } from 'react-native-elements';
 import colors from '../config/colors';
 import TopNavigator from '../navigation/TopNavigator';
+import { Rating } from 'react-native-ratings';
 
 const { height, width } = Dimensions.get('screen')
 
@@ -34,7 +35,14 @@ export default class BarberInfo extends Component {
                     <View style={styles.headerContainer}>
                         <Text style={styles.textservice}>{params.service}</Text>
                         <Text style={styles.textname}>{params.name}</Text>
-
+                        <Rating
+                            type="custom"
+                            showRating={false}
+                            startingValue={params.evaluation_note}
+                            imageSize={22}
+                            readonly
+                            style={{backgroundColor: '#f1c40f'}}
+                        />
                     </View>
                 </ImageBackground>
                 <View style={styles.list}>
@@ -46,7 +54,7 @@ export default class BarberInfo extends Component {
                         bottomDivider
                     />
                 </View>
-                <TopNavigator item={params}/>
+                <TopNavigator item={params} />
             </SafeAreaView>
         )
     }

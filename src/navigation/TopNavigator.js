@@ -4,38 +4,38 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import colors from '../config/colors';
+import EvaluationsView from '../views/Evaluations.js';
+import LocationView from '../views/Location.js';
+import OcupationsView from'../views/Ocupations.js';
 
 const TabTop = createMaterialTopTabNavigator();
-
-function SettingsScreen(item) {
-
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings!</Text>
-        </View>
-    );
-}
-function HomeScreen({ route, navigation }) {
-    const { name } = route.params;
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Home!</Text>
-            <Text>Nome: {name}</Text>
-        </View>
-    );
-}
 
 class TopNavigator extends React.Component {
     render() {
         const { item } = this.props;
         return (
-            <TabTop.Navigator>
+            <TabTop.Navigator
+                tabBarOptions={{
+                    activeTintColor: colors.primary,
+                    inactiveTintColor: colors.grey1,
+                    indicatorStyle: {backgroundColor: colors.primary},
+                }}
+            >
                 <TabTop.Screen
-                    name="Home"
-                    component={HomeScreen}
-                    initialParams={{ name: item.name }}
+                    name="Ocupações"
+                    component={OcupationsView}
+                    initialParams={{ item: item }}
                 />
-                <TabTop.Screen name="Settings" component={SettingsScreen} />
+                <TabTop.Screen
+                    name="Localização"
+                    component={LocationView}
+                    initialParams={{ item: item }}
+                />
+                <TabTop.Screen
+                    name="Avaliações"
+                    component={EvaluationsView}
+                    initialParams={{ item: item }}
+                />
             </TabTop.Navigator>
         );
     }
