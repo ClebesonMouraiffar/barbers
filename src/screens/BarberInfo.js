@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 import {
     ListItem,
+    Avatar,
 } from 'react-native-elements';
 import colors from '../config/colors';
 import TopNavigator from '../navigation/TopNavigator';
 import { Rating } from 'react-native-ratings';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const { height, width } = Dimensions.get('screen')
 
@@ -25,26 +27,34 @@ export default class BarberInfo extends Component {
 
     render() {
         const params = this.props.route.params;
+        const STAR_OUTLINE = require('../assets/images/star_primary.png');
 
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <ImageBackground
-                    source={params.banner_src}
-                    style={{ height: 160, width, zIndex: 1, }}
-                >
-                    <View style={styles.headerContainer}>
-                        <Text style={styles.textservice}>{params.service}</Text>
-                        <Text style={styles.textname}>{params.name}</Text>
+
+                <View style={styles.headerContainer}>
+                    <Avatar
+                        size="xlarge"
+                        rounded
+                        source={{ uri: params.avatar_url }}
+                    />
+                    <Text style={styles.textname}>{params.name}</Text>
+                    <View style={styles.ratingsViewRow}>
                         <Rating
                             type="custom"
+                            ratingImage={STAR_OUTLINE}
                             showRating={false}
+                            fractions={1}
                             startingValue={params.evaluation_note}
                             imageSize={22}
                             readonly
-                            style={{backgroundColor: '#f1c40f'}}
+                            ratingColor={colors.primary1}
+                            ratingBackgroundColor={colors.primary}
                         />
+                        <Text style={styles.textrating}>{params.evaluation_note}</Text>
+                        <Text style={styles.textnote}>/5</Text>
                     </View>
-                </ImageBackground>
+                </View>
                 <View style={styles.list}>
                     <ListItem
                         title="Tempo Estimado de Espera"
@@ -64,20 +74,26 @@ const styles = StyleSheet.create({
     headerContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
-        backgroundColor: colors.forBanner,
-        height: 160,
+        padding: 5,
+        backgroundColor: colors.primary,
+    },
+    ratingsViewRow: {
+        flexDirection: 'row',
     },
     textname: {
         color: colors.primary1,
-        marginTop: 10,
         fontSize: 24,
+        marginBottom: 2,
         fontWeight: 'bold',
     },
-    textservice: {
-        color: colors.primary1,
-        marginTop: 30,
-        fontSize: 16,
-        backgroundColor: colors.primary,
+    textrating: {
+        color: colors.primary2,
+        fontSize: 20,
+        paddingLeft: 5
+    },
+    textnote: {
+        color: colors.primary2,
+        fontSize: 15,
+        paddingTop: 4,
     },
 })

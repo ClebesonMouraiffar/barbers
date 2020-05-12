@@ -39,7 +39,8 @@ function RootNavigator() {
                     name="Info"
                     component={BarberInfo}
                     options={{
-                        headerTitleAlign: 'center',
+                        headerTitle: false,
+                        headerTransparent: true,
                         headerTintColor: colors.primary1,
                         headerStyle: {
                             backgroundColor: colors.primary,

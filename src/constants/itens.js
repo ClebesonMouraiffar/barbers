@@ -30,7 +30,7 @@ export default [
         comment:'Otimo Profissional'
       }
     ],
-    evaluation_note:'4',
+    evaluation_note:'4.0',
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ export default [
         comment:'Otimo Profissional! Recomendo a todos do aplicativo'
       }
     ],
-    evaluation_note:'4',
+    evaluation_note:'3.5',
   },
   {
     id: 3,
@@ -95,7 +95,7 @@ export default [
         comment:'Otimo Profissional'
       }
     ],
-    evaluation_note:'4',
+    evaluation_note:'4.0',
   },
   {
     id: 4,
@@ -128,7 +128,7 @@ export default [
         comment:'Otimo Profissional'
       }
     ],
-    evaluation_note:'4',
+    evaluation_note:'4.5',
   },
   {
     id: 5,
@@ -157,6 +157,6 @@ export default [
         comment:'Otimo Profissional'
       }
     ],
-    evaluation_note:'4',
+    evaluation_note:'5.0',
   },
 ];
