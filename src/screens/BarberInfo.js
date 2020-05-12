@@ -52,7 +52,7 @@ export default class BarberInfo extends Component {
                             ratingBackgroundColor={colors.primary}
                         />
                         <Text style={styles.textrating}>{params.evaluation_note}</Text>
-                        <Text style={styles.textnote}>/5</Text>
+                        <Text style={styles.textnote}>{'(' + params.evaluation_qty + ')'}</Text>
                     </View>
                 </View>
                 <View style={styles.list}>
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     textnote: {
         color: colors.primary2,
         fontSize: 15,
-        paddingTop: 4,
+        paddingTop: 2,
+        paddingLeft: 3
     },
 })

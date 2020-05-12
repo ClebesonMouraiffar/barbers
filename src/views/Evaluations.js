@@ -16,7 +16,7 @@ function EvaluationsView({ route, navigation }) {
             <View style={styles.list}>
                 {item.evaluations.map((evaluation, i) => (
                     <ListItem
-                        leftAvatar={{ title: evaluation.user_name[0], source: { uri: evaluation.user_avatar } }}
+                        leftAvatar={{ source: { uri: evaluation.user_avatar } }}
                         title={evaluation.user_name}
                         subtitle={evaluation.comment}
                         rightTitle="Avaliou com:"

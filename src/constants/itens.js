@@ -31,6 +31,7 @@ export default [
       }
     ],
     evaluation_note:'4.0',
+    evaluation_qty: '1',
   },
   {
     id: 2,
@@ -64,6 +65,7 @@ export default [
       }
     ],
     evaluation_note:'3.5',
+    evaluation_qty: '1',
   },
   {
     id: 3,
@@ -96,6 +98,7 @@ export default [
       }
     ],
     evaluation_note:'4.0',
+    evaluation_qty: '1',
   },
   {
     id: 4,
@@ -129,6 +132,7 @@ export default [
       }
     ],
     evaluation_note:'4.5',
+    evaluation_qty: '1',
   },
   {
     id: 5,
@@ -158,5 +162,6 @@ export default [
       }
     ],
     evaluation_note:'5.0',
+    evaluation_qty: '1',
   },
 ];
