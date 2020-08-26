@@ -1,16 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { CheckBox, Button } from 'react-native-elements'
-
-import styles from '../assets/styles/scanStyle'
-import colors from '../config/colors';
 import {
     TouchableOpacity,
     Text,
     StatusBar,
     SafeAreaView,
-    View
+    View,
+    Dimensions,
 } from 'react-native';
+
+import colors from '../config/colors';
+import { qrinfo } from './../constants'
 
 class Scan extends Component {
     constructor(props) {
@@ -19,8 +20,25 @@ class Scan extends Component {
             scan: true,
             ScanResult: false,
             result: null,
-            checked: false
+            checkboxes: [{
+                id: 1,
+                title: 'one',
+                checked: false,
+            }, {
+                id: 2,
+                title: 'two',
+                checked: false,
+            }],
         };
+    }
+    toggleCheckbox(id) {
+        const changedCheckBox = this.state.checkboxes.find((cb) => cb.id === id);
+
+        changedCheckBox.checked = !changedCheckBox.checked;
+
+        const checkboxes = Object.assign({}, this.state.checkboxes, changedCheckBox);
+
+        this.setState({ checkboxes });
     }
 
     onSuccess = (e) => {
@@ -76,6 +94,65 @@ class Scan extends Component {
                         {ScanResult &&
                             <Fragment>
                                 <View style={ScanResult ? styles.scanCardView : styles.cardView}>
+                                    {qrinfo.map((item, i) => (
+                                        <View>
+                                            <Text>Bem Vindo a(o) {item.name}</Text>
+                                            <Text>Por gentileza escolha os serviços que deseja hoje:</Text>
+                                            {item.services.map((service, i) => (
+                                                <CheckBox
+                                                    title={service.name + ' R$ ' + service.value}
+                                                    checked={this.state.checked}
+                                                    onPress={() => this.setState({ checked: !this.state.checked })}
+                                                />
+                                            ))}
+
+                                        </View>
+                                    ))}
+                                    {this.state.checkboxes.map((cb) => {
+                                        return (
+                                            <CheckBox
+                                                key={cb.id}
+                                                title={cb.title}
+                                                checked={cb.checked}
+                                                onPress={() => this.toggleCheckbox(cb.id)}
+                                            />
+                                        )
+                                    })}
+                                </View>
+                            </Fragment>
+                        }
+
+
+                        {scan &&
+                            <QRCodeScanner
+                                reactivate={true}
+                                showMarker={true}
+                                ref={(node) => { this.scanner = node }}
+                                onRead={this.onSuccess}
+                            />
+                        }
+                    </Fragment>
+                </View>
+            </SafeAreaView>
+
+        );
+    }
+}
+/*
+<Text style={styles.textTitle1}>Result !</Text>
+                                <View style={ScanResult ? styles.scanCardView : styles.cardView}>
+                                    <Text>Type : {result.type}</Text>
+                                    <Text>Result : {result.data}</Text>
+                                    <Text numberOfLines={1}>RawData: {result.rawData}</Text>
+                                    <TouchableOpacity onPress={this.scanAgain} style={styles.buttonTouchable}>
+                                        <Text style={styles.buttonTextStyle}>Click to Scan again!</Text>
+                                    </TouchableOpacity>
+
+                                </View>
+                                <TouchableOpacity onPress={this.scanAgain} style={styles.buttonTouchable}>
+                                        <Text style={styles.buttonTextStyle}>Click to Scan again!</Text>
+                                    </TouchableOpacity>
+
                                     <CheckBox
                                         title='Cabelo'
                                         checked={this.state.checked}
@@ -115,42 +192,118 @@ class Scan extends Component {
                                             containerStyle={{ width: 150 }}
                                         />
                                     </View>
-                                </View>
-                            </Fragment>
-                        }
-
-
-                        {scan &&
-                            <QRCodeScanner
-                                reactivate={true}
-                                showMarker={true}
-                                ref={(node) => { this.scanner = node }}
-                                onRead={this.onSuccess}
-                            />
-                        }
-                    </Fragment>
-                </View>
-            </SafeAreaView>
-
-        );
-    }
-}
-/*
-<Text style={styles.textTitle1}>Result !</Text>
-                                <View style={ScanResult ? styles.scanCardView : styles.cardView}>
-                                    <Text>Type : {result.type}</Text>
-                                    <Text>Result : {result.data}</Text>
-                                    <Text numberOfLines={1}>RawData: {result.rawData}</Text>
-                                    <TouchableOpacity onPress={this.scanAgain} style={styles.buttonTouchable}>
-                                        <Text style={styles.buttonTextStyle}>Click to Scan again!</Text>
-                                    </TouchableOpacity>
-
-                                </View>
-                                <TouchableOpacity onPress={this.scanAgain} style={styles.buttonTouchable}>
-                                        <Text style={styles.buttonTextStyle}>Click to Scan again!</Text>
-                                    </TouchableOpacity>
 */
 
 
 
 export default Scan;
+
+const deviceWidth = Dimensions.get('screen').width;
+const deviceHeight = Dimensions.get('screen').height;
+const styles = {
+    scrollViewStyle: {
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: '#120f06'
+    },
+
+    textTitle: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        textAlign: 'center',
+        padding: 16,
+        color: 'white'
+    },
+    textTitle1: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        textAlign: 'center',
+        padding: 16,
+        color: 'black'
+    },
+    cardView: {
+        width: deviceWidth - 32,
+        height: deviceHeight / 2,
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 4,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 10,
+        backgroundColor: 'white'
+    },
+    scanCardView: {
+        width: deviceWidth - 22,
+        height: deviceHeight / 2,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 4,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 10,
+        backgroundColor: 'white'
+    },
+    buttonScan: {
+        width: 42,
+
+    },
+    descText: {
+        padding: 16,
+        textAlign: 'justify',
+        fontSize: 16
+    },
+
+
+    highlight: {
+        fontWeight: '700',
+    },
+
+    centerText: {
+        flex: 1,
+        fontSize: 18,
+        padding: 32,
+        color: '#777',
+    },
+    textBold: {
+        fontWeight: '500',
+        color: '#000',
+    },
+    buttonTouchable: {
+        fontSize: 21,
+        backgroundColor: '#120f06',
+        marginTop: 32,
+
+        width: deviceWidth - 62,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 44
+    },
+    buttonTextStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: '100%',
+        marginTop: 20,
+    },
+}

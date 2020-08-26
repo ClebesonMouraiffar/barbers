@@ -50,36 +50,39 @@ class ListItens extends React.Component {
                                     <ListItem
                                         leftAvatar={{ title: item.name[0], source: { uri: item.avatar_url } }}
                                         title={item.name}
+                                        subtitle={
+                                            <View style={styles.subtitleViewRow}>
+                                                <Icon
+                                                    name='cut'
+                                                    type='font-awesome'
+                                                    color={colors.grey1}
+                                                    size={16}
+                                                />
+                                                {item.services.map((service, i) => (
+                                                    <Text style={styles.serviceText}>
+                                                        {service.service_name},
+                                                    </Text>
+                                                ))}
+
+                                            </View>
+                                        }
                                         rightTitle={
                                             <View style={styles.subtitleViewRow}>
                                                 <Rating
                                                     showRating={false}
                                                     fractions={1}
                                                     ratingCount={1}
-                                                    startingValue={item.evaluation_note}
+                                                    startingValue={item.evaluation_note / 5}
                                                     imageSize={22}
                                                     readonly
                                                 />
                                                 <Text style={styles.ratingText}>{item.evaluation_note}</Text>
                                             </View>
                                         }
+                                        rightSubtitle={''}
                                     />
                                     <View style={styles.containerView}>
                                         <Divider />
-                                        <View style={styles.subtitleViewRow}>
-                                            <Icon
-                                                name='cut'
-                                                type='font-awesome'
-                                                color={colors.grey1}
-                                                size={16}
-                                            />
-                                            {item.services.map((service, i) => (
-                                                <Text style={styles.serviceText}>
-                                                    {service.service_name},
-                                                </Text>
-                                            ))}
-
-                                        </View>
                                         <View style={styles.subtitleViewRow}>
                                             <Icon
                                                 name='location-on'
