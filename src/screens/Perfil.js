@@ -19,7 +19,7 @@ import { users } from './../constants';
 
 class Perfil extends React.Component {
     onMore = (item) => {
-        this.props.navigation.navigate('PerfilData', item);
+        this.props.navigation.navigate('Register', item);
     };
     render() {
         const { navigation } = this.props;
@@ -73,8 +73,3 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
 })
-
-/*<Button
-                    onPress={() => navigation.navigate('PerfilEdit')}
-                    title="Editar"
-                />*/

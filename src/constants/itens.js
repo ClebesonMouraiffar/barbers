@@ -4,7 +4,7 @@ export default [
     name: 'Barbearia A',
     details:'Atendimento com Compromisso e satisfação do Cliente!',
     avatar_url:
-      'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ18yhzhK29tpiZLMI1ST9pg4UmaOslvlM_2g&usqp=CAU',
     banner_src: require("../assets/images/banner_info.png") ,
     services:[
       {
@@ -38,7 +38,7 @@ export default [
     name: 'Barbearia B',
     details:'Atendimento com Compromisso e satisfação do Cliente!',
     avatar_url:
-      'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSB7Ss8Bv697O0NBg742B3uC4NWZay4ZCxmWA&usqp=CAU',
     banner_src: require("../assets/images/banner_navalhaforte.jpg"),
     services: [
       {
@@ -71,7 +71,7 @@ export default [
     id: 3,
     name: 'Barbearia C',
     details:'Atendimento com Compromisso e satisfação do Cliente!',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    avatar_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRH3wBFc4QjJHIjHRkjrkD3_ze1Z8qijtwxOg&usqp=CAU',
     banner_src: require("../assets/images/banner_info.png") ,
     services: [
       {
