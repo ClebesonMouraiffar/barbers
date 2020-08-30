@@ -21,6 +21,13 @@
       android:roundIcon="@drawable/icon"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
+      <meta-data
+       android:name="com.google.android.geo.API_KEY"
+       android:value="AIzaSyA3n034ZB5bch5-f01AAs7-GNm2QlrTJQ8"/>
+  
+     <!-- You will also only need to add this uses-library tag -->
+     <uses-library android:name="org.apache.http.legacy" android:required="false"/>
       <activity
         android:name=".MainActivity"
         android:screenOrientation="portrait"

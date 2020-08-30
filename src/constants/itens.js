@@ -20,7 +20,7 @@ export default [
         service_value: "10,00"
       },
     ],
-    location: 'R. Nome da rua, 001',
+    location: 'R. Adolfo Sinnemann, 247',
     time: '00:30',
     evaluations:[
       {
@@ -54,7 +54,7 @@ export default [
         service_value: "10,00"
       },
     ],
-    location: 'R. Nome da Rua, 002',
+    location: 'R. Adolfo Sinnemann, 247',
     time: '02:30',
     evaluations:[
       {
@@ -87,7 +87,7 @@ export default [
         service_value: "10,00"
       },
     ],
-    location: 'R. Nome da rua, 003',
+    location: 'R. Adolfo Sinnemann, 247',
     time: '01:00',
     evaluations:[
       {
@@ -111,7 +111,7 @@ export default [
     name: "Barbearia D",
     details:'Atendimento com Compromisso e satisfação do Cliente!',
     avatar_url:
-      'https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRH3wBFc4QjJHIjHRkjrkD3_ze1Z8qijtwxOg&usqp=CAU',
     banner_src: require("../assets/images/banner_info.png") ,
     services: [
       {
@@ -127,7 +127,7 @@ export default [
         service_value: "10,00"
       },
     ],
-    location: 'R. Nome da Rua, 004',
+    location: 'R. Adolfo Sinnemann, 247',
     time: '01:30',
     evaluations:[
       {
