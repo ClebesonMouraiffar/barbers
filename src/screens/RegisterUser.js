@@ -4,26 +4,39 @@ import {
     StyleSheet,
     ScrollView,
     View,
-    Button,
+    Dimensions,
     StatusBar,
 } from 'react-native';
 import {
-    Text,
+    Button,
     Avatar,
     ListItem,
     Input,
     Icon,
-    Accessory
+    CheckBox
 } from 'react-native-elements';
 import colors from '../config/colors';
 
+const SCREEN_WIDTH = Dimensions.get('screen').width;
 
 class Register extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            checkboxes: [{
+                id: 1,
+                title: 'one',
+                checked: false,
+            }, {
+                id: 2,
+                title: 'two',
+                checked: false,
+            }],
+        }
     }
     render() {
         const params = this.props.route.params;
+
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <StatusBar barStyle="light-content" backgroundColor="#b58110" />
@@ -33,10 +46,10 @@ class Register extends React.Component {
                         rounded
                         icon={{ name: 'user', type: 'font-awesome' }}
                         showEditButton
-                        editButton={{ color:colors.primary1, underlayColor: colors.secondary}}
+                        editButton={{ color: colors.primary1, underlayColor: colors.secondary }}
                     >
                     </Avatar>
-                    
+
 
                 </View>
                 <ScrollView
@@ -173,6 +186,33 @@ class Register extends React.Component {
                                 placeholderTextColor={colors.grey2}
                                 color={colors.grey1}
                             />
+                            <CheckBox
+                                title='Quero ser um Barbeiro'
+                                checked={this.state.checked}
+                                onPress={() => this.setState({ checked: !this.state.checked })}
+                                containerStyle={styles.inputContainerStyle}
+                                checkedColor={colors.primary}
+
+                            />
+                            <Input
+                                leftIconContainerStyle={{ marginLeft: 0, marginRight: 10 }}
+                                containerStyle={styles.inputContainerStyle}
+                                multiline={true}
+                                placeholder="Sobre mim *"
+                                errorMessage="Aqui você deve falar sobre você e as informações importantes do seu trabalho."
+                                placeholderTextColor={colors.grey2}
+                                color={colors.grey1}
+                                errorStyle={styles.InfoText}
+                            />
+                            <Button
+                                containerStyle={{ marginVertical: 20 }}
+                                style={styles.button}
+                                buttonStyle={styles.buttonStyle}
+                                title="PRÓXIMO"
+                                titleStyle={styles.titleStyle}
+                                onPress={() => navigation.navigate('QRCodeScan')}
+                                activeOpacity={0.5}
+                            />
                         </View>
                     </View>
                 </ScrollView>
@@ -209,8 +249,33 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     InfoText: {
-        color: colors.grey1,
+        color: colors.primary,
     },
+    inputContainerStyle: {
+        paddingTop: 10,
+        width: SCREEN_WIDTH - 10,
+    },
+    buttonStyle: {
+        height: 50,
+        width: SCREEN_WIDTH - 10,
+        borderRadius: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.primary,
+    },
+    titleStyle: {
+        fontFamily: 'regular',
+        fontSize: 16,
+        color: colors.primary1,
+        textAlign: 'center',
+        fontWeight: '700',
+    },
+    button: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
 })
 
 /*
