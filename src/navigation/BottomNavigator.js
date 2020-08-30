@@ -7,7 +7,6 @@ import Home from "../screens/Home"
 import ListItens from "../screens/ListItens"
 import Perfil from "../screens/Perfil"
 import Login from "../screens/Login"
-import Register from "../screens/Register"
 import colors from '../config/colors';
 
 const Tab = createBottomTabNavigator();

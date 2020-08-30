@@ -12,6 +12,7 @@ import PerfilData from "../screens/PerfilData"
 import colors from '../config/colors'
 import RegisterUser from '../screens/RegisterUser'
 import RegisterService from '../screens/RegisterService'
+import RegisterDocs from '../screens/RegisterDocs'
 
 const RootStack = createStackNavigator();
 
@@ -99,6 +100,30 @@ function RootNavigator() {
                     component={RegisterService}
                     options={{
                         headerTitle: "Cadastro Serviços",
+                        headerTintColor: colors.primary1,
+                        headerStyle: {
+                            backgroundColor: colors.primary,
+                            elevation: 0,
+                            shadowOpacity: 0,
+                        },
+                        headerRight: () => (
+                            <Button
+                                type="clear"
+                                onPress={() => alert('Dados salvo com Sucesso!')}
+                                icon={{
+                                    name: 'done',
+                                    type: 'material',
+                                    color: colors.primary1,
+                                }}
+                            />
+                        ),
+                    }}
+                />
+                <RootStack.Screen
+                    name="RegisterDocs"
+                    component={RegisterDocs}
+                    options={{
+                        headerTitle: "Envio de Documentos",
                         headerTintColor: colors.primary1,
                         headerStyle: {
                             backgroundColor: colors.primary,

@@ -8,9 +8,10 @@ import {
     StatusBar,
 } from 'react-native';
 import {
-    Input,
+    Text,
     Button,
     ListItem,
+    Icon
 } from 'react-native-elements';
 import colors from '../config/colors';
 
@@ -30,39 +31,90 @@ class Register extends React.Component {
                     showsVerticalScrollIndicator={true}
                 >
                     <View style={styles.list}>
-                        <View style={{justifyContent: "center", alignItems: 'center', marginBottom: 20 }}>
-                            <Input
-                                leftIconContainerStyle={{ marginLeft: 0, marginRight: 10 }}
-                                containerStyle={styles.inputContainerStyle}
-                                placeholder="Nome *"
-                                placeholderTextColor={colors.grey2}
-                                color={colors.grey1}
-                            />
-                            <Input
-                                leftIconContainerStyle={{ marginLeft: 0, marginRight: 10 }}
-                                containerStyle={styles.inputContainerStyle}
-                                placeholder="Valor *"
-                                placeholderTextColor={colors.grey2}
-                                color={colors.grey1}
-                            />
-                            <Input
-                                leftIconContainerStyle={{ marginLeft: 0, marginRight: 10 }}
-                                containerStyle={styles.inputContainerStyle}
-                                placeholder="Tempo *"
-                                placeholderTextColor={colors.grey2}
-                                color={colors.grey1} type=""
-                            />
-                            <Button
-                                containerStyle={{ marginVertical: 20 }}
-                                style={styles.button}
-                                buttonStyle={styles.buttonStyle}
-                                title="PRÓXIMO"
-                                titleStyle={styles.titleStyle}
-                                onPress={() => navigation.navigate('QRCodeScan')}
-                                activeOpacity={0.5}
-                                disabled
-                            />
-                        </View>
+                        <ListItem
+                            leftIcon={
+                                <Icon
+                                    name="account-box-outline"
+                                    type="material-community"
+                                    color={colors.primary}
+                                    size={40}
+                                />
+                            }
+                            title="Foto em tempo real"
+                            subtitle='Toque aqui para tirar uma foto em tempo real para verificar seu perfil'
+                            subtitleStyle={{ color: colors.primary, fontSize: 12, }}
+                            rightIcon={
+                                <Icon
+                                    name="check-outline"
+                                    type="material-community"
+                                    color="black"
+                                />
+                            }
+                            bottomDivider
+                        />
+                        <ListItem
+                            leftIcon={
+                                <Icon
+                                    name="idcard"
+                                    type="antdesign"
+                                    color={colors.primary}
+                                    size={40}
+                                />
+                            }
+                            title="Documento com foto "
+                            subtitle='Toque aqui e envie um documento oficial com foto'
+                            subtitleStyle={{ color: colors.primary, fontSize: 12, }}
+                            rightIcon={
+                                <Icon
+                                    name="check-outline"
+                                    type="material-community"
+                                    color="black"
+                                />
+                            }
+                            bottomDivider
+                        />
+                        <ListItem
+                            leftIcon={
+                                <Icon
+                                    name="card-text-outline"
+                                    type="material-community"
+                                    color={colors.primary}
+                                    size={40}
+                                />
+                            }
+                            title="Verso do documento com foto "
+                            subtitle='Toque aqui e envie o verso do documento oficial com foto'
+                            subtitleStyle={{ color: colors.primary, fontSize: 12, }}
+                            bottomDivider
+                        />
+                        <ListItem
+                            leftIcon={
+                                <Icon
+                                    name="card-text-outline"
+                                    type="material-community"
+                                    color={colors.primary}
+                                    size={40}
+                                />
+                            }
+                            title="Documento com CPF "
+                            subtitle='Toque aqui e envie um documento oficial com seu CPF'
+                            subtitleStyle={{ color: colors.primary, fontSize: 12, }}
+                            bottomDivider
+                        />
+                        <ListItem
+                            leftIcon={
+                                <Icon
+                                    name="file-document-outline"
+                                    type="material-community"
+                                    color={colors.primary}
+                                    size={40}
+                                />
+                            }
+                            title="Comprovante de Residencia "
+                            subtitle='Toque aqui e envie um comprovante de residencia'
+                            subtitleStyle={{ color: colors.primary, fontSize: 12, }}
+                            bottomDivider
+                        />
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -78,27 +130,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: colors.greyOutline,
         backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center'
     },
-    inputContainerStyle: {
-        marginTop: 16,
-        height: 65,
-        width: SCREEN_WIDTH - 10,
 
-    },
-    button: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    buttonStyle: {
-        height: 50,
-        width: SCREEN_WIDTH - 30,
-        borderRadius: 0,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: colors.primary,
-    },
 })
 
