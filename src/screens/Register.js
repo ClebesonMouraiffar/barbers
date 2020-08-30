@@ -32,6 +32,10 @@ class Login extends React.Component {
                     style={{ flex: 1, height: height, width, zIndex: 1 }}
                 >
                     <View style={styles.container}>
+                        <Image
+                            style={styles.tinyLogo}
+                            source={LogoWhite}
+                        />
                         <Button
                             containerStyle={{ marginVertical: 20 }}
                             style={styles.button}
@@ -56,8 +60,8 @@ class Login extends React.Component {
                             onPress={() => navigation.navigate('Barbearias')}
                             activeOpacity={0.5}
                             icon={{
-                                name:'cut',
-                                type:'font-awesome',
+                                name: 'cut',
+                                type: 'font-awesome',
                                 size: 30,
                                 color: colors.primary1,
                             }}

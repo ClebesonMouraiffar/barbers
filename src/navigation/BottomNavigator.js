@@ -7,7 +7,7 @@ import Home from "../screens/Home"
 import ListItens from "../screens/ListItens"
 import Perfil from "../screens/Perfil"
 import Login from "../screens/Login"
-import Register from "../screens/RegisterUser"
+import Register from "../screens/Register"
 import colors from '../config/colors';
 
 const Tab = createBottomTabNavigator();
@@ -78,7 +78,7 @@ function BottomNavigator() {
         >
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Barbearias" component={ListStack} />
-            <Tab.Screen name="Perfil" component={PerfilStack} />
+            <Tab.Screen name="Perfil" component={Register} />
         </Tab.Navigator>
     );
 }
