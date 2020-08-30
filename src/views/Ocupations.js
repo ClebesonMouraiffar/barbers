@@ -10,7 +10,7 @@ import colors from '../config/colors';
 function OcupationsView({ route }) {
     const { item } = route.params;
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={true}>
             <View style={styles.list}>
                 <ListItem
                     title={

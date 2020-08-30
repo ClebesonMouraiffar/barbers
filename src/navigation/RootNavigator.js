@@ -11,7 +11,7 @@ import Scan from "../screens/Scan"
 import PerfilData from "../screens/PerfilData"
 import colors from '../config/colors'
 import RegisterUser from '../screens/RegisterUser'
-import RegisterBarber from '../screens/RegisterBarber'
+import RegisterService from '../screens/RegisterService'
 
 const RootStack = createStackNavigator();
 
@@ -95,18 +95,22 @@ function RootNavigator() {
                     }}
                 />
                 <RootStack.Screen
-                    name="RegisterBarber"
-                    component={RegisterBarber}
+                    name="RegisterService"
+                    component={RegisterService}
                     options={{
-                        headerTitle: false,
+                        headerTitle: "Cadastro Serviços",
                         headerTintColor: colors.primary1,
-                        headerTransparent: true,
+                        headerStyle: {
+                            backgroundColor: colors.primary,
+                            elevation: 0,
+                            shadowOpacity: 0,
+                        },
                         headerRight: () => (
                             <Button
                                 type="clear"
-                                onPress={() => alert('This is a button!')}
+                                onPress={() => alert('Dados salvo com Sucesso!')}
                                 icon={{
-                                    name: 'edit',
+                                    name: 'done',
                                     type: 'material',
                                     color: colors.primary1,
                                 }}

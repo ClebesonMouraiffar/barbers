@@ -53,7 +53,7 @@ class Register extends React.Component {
 
                 </View>
                 <ScrollView
-                    showsVerticalScrollIndicator={false}
+                    showsVerticalScrollIndicator={true}
                 >
                     <View style={styles.list}>
                         <View style={{ alignItems: 'center', marginBottom: 20 }}>

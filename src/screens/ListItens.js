@@ -31,7 +31,7 @@ class ListItens extends React.Component {
             <SafeAreaView style={{ flex: 1 }}>
                 <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
                 <ScrollView
-                    showsVerticalScrollIndicator={false}
+                    showsVerticalScrollIndicator={true}
                 >
                     <View style={{ flex: 1 }}>
 

@@ -12,7 +12,7 @@ import colors from '../config/colors';
 function EvaluationsView({ route, navigation }) {
     const { item } = route.params;
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={true}>
             <View style={styles.list}>
                 {item.evaluations.map((evaluation, i) => (
                     <ListItem
