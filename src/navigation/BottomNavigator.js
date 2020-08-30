@@ -78,7 +78,7 @@ function BottomNavigator() {
         >
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Barbearias" component={ListStack} />
-            <Tab.Screen name="Perfil" component={Register} />
+            <Tab.Screen name="Perfil" component={PerfilStack} />
         </Tab.Navigator>
     );
 }

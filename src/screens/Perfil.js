@@ -19,7 +19,7 @@ import { users } from './../constants';
 
 class Perfil extends React.Component {
     onMore = (item) => {
-        this.props.navigation.navigate('Register', item);
+        this.props.navigation.navigate('RegisterUser', item);
     };
     render() {
         const { navigation } = this.props;

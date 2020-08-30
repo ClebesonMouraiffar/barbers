@@ -10,7 +10,6 @@ import BarberInfo from "../screens/BarberInfo"
 import Scan from "../screens/Scan"
 import PerfilData from "../screens/PerfilData"
 import colors from '../config/colors'
-import Register from '../screens/Register'
 import RegisterUser from '../screens/RegisterUser'
 import RegisterBarber from '../screens/RegisterBarber'
 
@@ -70,39 +69,24 @@ function RootNavigator() {
                         ),
                     }}
                 />
-                <RootStack.Screen
-                    name="Register"
-                    component={Register}
-                    options={{
-                        headerTitle: false,
-                        headerTintColor: colors.primary1,
-                        headerTransparent: true,
-                        headerRight: () => (
-                            <Button
-                                type="clear"
-                                onPress={() => alert('This is a button!')}
-                                icon={{
-                                    name: 'edit',
-                                    type: 'material',
-                                    color: colors.primary1,
-                                }}
-                            />
-                        ),
-                    }}
-                />
+
                 <RootStack.Screen
                     name="RegisterUser"
                     component={RegisterUser}
                     options={{
-                        headerTitle: false,
+                        headerTitle:"Dados do Perfil",
                         headerTintColor: colors.primary1,
-                        headerTransparent: true,
+                        headerStyle: {
+                            backgroundColor: colors.primary,
+                            elevation: 0,
+                            shadowOpacity: 0,
+                        },
                         headerRight: () => (
                             <Button
                                 type="clear"
-                                onPress={() => alert('This is a button!')}
+                                onPress={() => alert('Dados salvo com Sucesso!')}
                                 icon={{
-                                    name: 'edit',
+                                    name: 'done',
                                     type: 'material',
                                     color: colors.primary1,
                                 }}
