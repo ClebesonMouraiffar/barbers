@@ -19,7 +19,7 @@ import { users } from './../constants';
 
 class Perfil extends React.Component {
     onMore = (item) => {
-        this.props.navigation.navigate('RegisterDocs', item);
+        this.props.navigation.navigate('PerfilUser', item);
     };
     render() {
         const { navigation } = this.props;
@@ -41,6 +41,18 @@ class Perfil extends React.Component {
                     <View style={styles.list}>
                         <ListItem
                             title="Meus Dados"
+                            onPress={() => this.onMore(user)}
+                            chevron
+                            bottomDivider
+                        />
+                        <ListItem
+                            title="Avaliações"
+                            onPress={() => this.onMore(user)}
+                            chevron
+                            bottomDivider
+                        />
+                        <ListItem
+                            title="Sair"
                             onPress={() => this.onMore(user)}
                             chevron
                             bottomDivider

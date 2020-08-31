@@ -1,12 +1,5 @@
-import React from 'react';
-import {
-    SafeAreaView,
-    StyleSheet,
-    ScrollView,
-    View,
-    Button,
-    StatusBar,
-} from 'react-native';
+import * as React from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import {
     Text,
     Avatar,
@@ -14,25 +7,10 @@ import {
 } from 'react-native-elements';
 import colors from '../config/colors';
 
-
-class PerfilData extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        const params = this.props.route.params;
-        return (
-            <SafeAreaView style={{ flex: 1 }}>
-                <StatusBar barStyle="light-content" backgroundColor="#b58110" />
-                <View style={styles.headerContainer}>
-                    <Avatar
-                        size="xlarge"
-                        rounded
-                        icon={{ name: 'user', type: 'font-awesome' }}
-                    />
-                    <Text style={styles.heading}>{params.name}</Text>
-                </View>
-                <ScrollView
+function PerfilView({ route }) {
+    const { item } = route.params;
+    return (
+        <ScrollView
                     showsVerticalScrollIndicator={false}
                 >
                     <View style={styles.list}>
@@ -40,7 +18,7 @@ class PerfilData extends React.Component {
                             title={
                                 <View style={styles.titleViewRow}>
                                     <Text style={styles.titleText}>Cpf: </Text>
-                                    <Text style={styles.infoText}>{params.cpf}</Text>
+                                    <Text style={styles.infoText}>{item.cpf}</Text>
                                 </View>
                             }
                             bottomDivider
@@ -49,7 +27,7 @@ class PerfilData extends React.Component {
                             title={
                                 <View style={styles.titleViewRow}>
                                     <Text style={styles.titleText}>Email: </Text>
-                                    <Text style={styles.infoText}>{params.email}</Text>
+                                    <Text style={styles.infoText}>{item.email}</Text>
                                 </View>
                             }
                             bottomDivider
@@ -58,7 +36,7 @@ class PerfilData extends React.Component {
                             title={
                                 <View style={styles.titleViewRow}>
                                     <Text style={styles.titleText}>Celular: </Text>
-                                    <Text style={styles.infoText}>{params.fone}</Text>
+                                    <Text style={styles.infoText}>{item.fone}</Text>
                                 </View>
                             }
                             bottomDivider
@@ -67,7 +45,7 @@ class PerfilData extends React.Component {
                             title={
                                 <View style={styles.titleViewRow}>
                                     <Text style={styles.titleText}>Data Nascimento: </Text>
-                                    <Text style={styles.infoText}>{params.nascimento}</Text>
+                                    <Text style={styles.infoText}>{item.nascimento}</Text>
                                 </View>
                             }
                             bottomDivider
@@ -76,7 +54,7 @@ class PerfilData extends React.Component {
                             title={
                                 <View style={styles.titleViewRow}>
                                     <Text style={styles.titleText}>Genêro: </Text>
-                                    <Text style={styles.infoText}>{params.genero}</Text>
+                                    <Text style={styles.infoText}>{item.genero}</Text>
                                 </View>
                             }
                             bottomDivider
@@ -88,7 +66,7 @@ class PerfilData extends React.Component {
                             subtitle={
                                 <View style={styles.titleViewRow}>
                                     <Text style={styles.infoText}>
-                                        {params.rua}, {params.numero}, {params.bairro}, {params.cidade}, {params.estado}
+                                        {item.rua}, {item.numero}, {item.bairro}, {item.cidade}, {item.estado}
                                     </Text>
                                 </View>
                             }
@@ -96,25 +74,21 @@ class PerfilData extends React.Component {
                         />
                     </View>
                 </ScrollView>
-            </SafeAreaView>
-
-        );
-    }
+    );
 }
 
-export default PerfilData;
+export default PerfilView;
 
 const styles = StyleSheet.create({
-    headerContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-        backgroundColor: colors.primary,
+    view: {
+        flex: 1
     },
-    heading: {
-        color: 'white',
-        marginTop: 20,
-        fontSize: 22,
+    text: {
+        paddingLeft: 15,
+        paddingTop: 20,
+        paddingRight: 15,
+        fontSize: 16,
+        color: colors.grey1
     },
     list: {
         borderTopWidth: 1,
@@ -125,15 +99,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     titleText: {
-        color: colors.primary2,
-        fontWeight: 'bold'
+        color: colors.grey2,
+        fontWeight: 'bold',
+        fontSize: 16,
     },
-    InfoText: {
+    nameText: {
+        color: colors.primary2,
+        fontSize: 15,
+    },
+    valueText: {
         color: colors.grey1,
+        fontSize: 15,
     },
 })
-
-/*<Button
-                    onPress={() => navigation.navigate('PerfilEdit')}
-                    title="Editar"
-                />*/

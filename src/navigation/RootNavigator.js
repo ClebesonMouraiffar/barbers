@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomNavigator from "./BottomNavigator"
 import BarberInfo from "../screens/BarberInfo"
 import Scan from "../screens/Scan"
-import PerfilData from "../screens/PerfilData"
+import PerfilUser from "../screens/PerfilUser"
 import colors from '../config/colors'
 import RegisterUser from '../screens/RegisterUser'
 import RegisterService from '../screens/RegisterService'
@@ -51,8 +51,8 @@ function RootNavigator() {
                     }}
                 />
                 <RootStack.Screen
-                    name="PerfilData"
-                    component={PerfilData}
+                    name="PerfilUser"
+                    component={PerfilUser}
                     options={{
                         headerTitle: false,
                         headerTintColor: colors.primary1,
