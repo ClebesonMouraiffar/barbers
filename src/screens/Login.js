@@ -70,7 +70,7 @@ class Login extends React.Component {
                             buttonStyle={styles.buttonStyle}
                             title="ENTRAR NO BARBERS"
                             titleStyle={styles.titleStyle}
-                            onPress={() => navigation.navigate('QRCodeScan')}
+                            onPress={() => navigation.navigate('Perfil')}
                             activeOpacity={0.5}
                         />
                         <Button
@@ -79,7 +79,7 @@ class Login extends React.Component {
                             buttonStyle={styles.buttonStyle}
                             title="CADASTRAR NO BARBERS"
                             titleStyle={styles.titleStyle}
-                            onPress={() => navigation.navigate('Barbearias')}
+                            onPress={() => navigation.navigate('RegisterUser')}
                             activeOpacity={0.5}
                         />
                     </View>

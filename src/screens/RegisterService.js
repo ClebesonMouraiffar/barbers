@@ -23,6 +23,7 @@ class Register extends React.Component {
     }
     render() {
         const params = this.props.route.params;
+        const { navigation } = this.props;
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <StatusBar barStyle="light-content" backgroundColor="#b58110" />
@@ -58,9 +59,9 @@ class Register extends React.Component {
                                 buttonStyle={styles.buttonStyle}
                                 title="PRÓXIMO"
                                 titleStyle={styles.titleStyle}
-                                onPress={() => navigation.navigate('QRCodeScan')}
+                                onPress={() => navigation.navigate('RegisterDocs')}
                                 activeOpacity={0.5}
-                                disabled
+                                //disabled
                             />
                         </View>
                     </View>

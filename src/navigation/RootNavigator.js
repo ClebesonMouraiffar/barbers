@@ -13,6 +13,7 @@ import colors from '../config/colors'
 import RegisterUser from '../screens/RegisterUser'
 import RegisterService from '../screens/RegisterService'
 import RegisterDocs from '../screens/RegisterDocs'
+import EvaluationsManager from '../screens/EvaluationsManager'
 
 const RootStack = createStackNavigator();
 
@@ -141,6 +142,19 @@ function RootNavigator() {
                                 }}
                             />
                         ),
+                    }}
+                />
+                <RootStack.Screen
+                    name="EvaluationsManager"
+                    component={EvaluationsManager}
+                    options={{
+                        headerTitle: "Avaliações",
+                        headerTintColor: colors.primary1,
+                        headerStyle: {
+                            backgroundColor: colors.primary,
+                            elevation: 0,
+                            shadowOpacity: 0,
+                        },
                     }}
                 />
             </RootStack.Navigator>
